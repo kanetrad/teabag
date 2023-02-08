@@ -62,7 +62,38 @@ namespace Workspace
 
 			if (dPower<60)
 			{
-				int attack = random.Next(20,100);
+				int attack = random.Next(20,90);
+				int bot_random = random.Next(1,5);
+				if (bot_random == 1)
+				{
+					int bot1 = 1;
+					Console.WriteLine("Lucky is "+bot1.ToString());
+					int bot_lucky = bot1;
+				}
+				if (bot_random == 2)
+				{
+					int bot2 = 2;
+					Console.WriteLine("Lucky is "+bot2.ToString());
+					int bot_lucky = bot2;
+				}
+				if (bot_random == 3)
+				{
+					int bot3 = 3;
+					Console.WriteLine("Lucky is "+bot3.ToString());
+					int bot_lucky = bot3;
+				}
+				if (bot_random == 4)
+				{
+					int bot4 = 4;
+					Console.WriteLine("Lucky is "+bot4.ToString());
+					int bot_lucky = bot4;
+				}
+				if (bot_random == 5)
+				{
+					int bot5 = 5;
+					Console.WriteLine("Lucky is "+bot5.ToString());
+					int bot_lucky = bot5;
+				}
 			}
 
 			while (bot_amount != 5)
@@ -72,6 +103,8 @@ namespace Workspace
 				bot_amount++;
 				Console.WriteLine(resultofid);
 			}
+
+			if ()
 
 			Console.ReadLine();
 		}
