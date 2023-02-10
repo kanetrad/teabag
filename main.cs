@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 
 namespace Workspace
 {
@@ -19,29 +18,29 @@ namespace Workspace
 
 			//string bot_amount = Console.ReadLine();
 			int bot_amount = Int32.Parse(Console.ReadLine());
-			bool bot_amountBOOL = false;
-			int FFF = bot_amount;
+			int FFF = 1;
 			//int bot_amount = Convert.ToInt32(bot_amount_str);
 			int botHP = 100;
 			int power = random.Next(1, 10);
-			int dPower = random.Next(1,100);
+			int dPower = random.Next(1, bot_amount*2);
 			int randomSword = random.Next(2,5);
 			int randomJustice = random.Next(1,2);
 
-			while (bot_amount != FFF)
+			while (FFF != bot_amount+1)
 			{
 				int battleID = random.Next(1, bot_amount);
 				int bot = battleID;
-				string result = "bot" + battleID.ToString();
+				string result = "bot" + battleID;
 				FFF++;
 				Console.WriteLine(result);
 				//if (FFF == bot_amount)
 				//{
+					//Console.WriteLine(result);
 					//break;
 				//}
 			}
 
-			if (dPower>60)
+			/*if (dPower>60)
 			{
 				int attack = random.Next(50,100);
 				int bot_random = random.Next(1,5);
@@ -111,7 +110,7 @@ namespace Workspace
 					Console.WriteLine("Not so lucky is "+bot5.ToString());
 					int bot_lucky = bot5;
 				}
-			}
+			}*/
 
 			Console.ReadLine();
 		}
