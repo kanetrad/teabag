@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace Workspace
 {
@@ -16,21 +17,28 @@ namespace Workspace
 		{
 			Random random = new Random();
 
-			int[] bots = {1, 2, 3, 4, 5};
-			int bot_amount = 0;
+			//string bot_amount = Console.ReadLine();
+			int bot_amount = Int32.Parse(Console.ReadLine());
+			bool bot_amountBOOL = false;
+			int FFF = bot_amount;
+			//int bot_amount = Convert.ToInt32(bot_amount_str);
 			int botHP = 100;
 			int power = random.Next(1, 10);
 			int dPower = random.Next(1,100);
 			int randomSword = random.Next(2,5);
 			int randomJustice = random.Next(1,2);
 
-			while (bot_amount != 5)
+			while (bot_amount != FFF)
 			{
-				int battleID = random.Next(1, 5);
+				int battleID = random.Next(1, bot_amount);
 				int bot = battleID;
-				string resultofid = "bot" + battleID.ToString();
-				bot_amount++;
-				Console.WriteLine(resultofid);
+				string result = "bot" + battleID.ToString();
+				FFF++;
+				Console.WriteLine(result);
+				//if (FFF == bot_amount)
+				//{
+					//break;
+				//}
 			}
 
 			if (dPower>60)
