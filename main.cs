@@ -17,30 +17,57 @@ namespace Workspace
 			Random random = new Random();
 
 			//string bot_amount = Console.ReadLine();
+			Console.WriteLine("Enter bot amount: ");
 			int bot_amount = Int32.Parse(Console.ReadLine());
 			int FFF = 1;
-			//int bot_amount = Convert.ToInt32(bot_amount_str);
+			int[] bots = {1,2,3,4,5,6,7,8,9,10};
 			int botHP = 100;
+			//int TWO = 0;
+			//int bot_amount = Convert.ToInt32(bot_amount_str);
 			int power = random.Next(1, 10);
-			int dPower = random.Next(1, bot_amount*2);
-			int randomSword = random.Next(2,5);
-			int randomJustice = random.Next(1,2);
+			int dPower = random.Next(1, bot_amount+100);
+			//int randomJustice = random.Next(1,2);
+			int battleID;
+			int bot;
+			int randomBOT = random.Next(1, bots.Length);
 
 			while (FFF != bot_amount+1)
 			{
-				int battleID = random.Next(1, bot_amount);
-				int bot = battleID;
+				battleID = random.Next(1, bot_amount);
+				bot = battleID;
+				int battleID2 = random.Next(1, bot_amount);
 				string result = "bot" + battleID;
 				FFF++;
 				Console.WriteLine(result);
-				//if (FFF == bot_amount)
+
+				if (FFF == bot_amount+1)
+				{
+					Console.WriteLine("bot"+battleID+" VS "+"bot"+battleID2);
+					Console.WriteLine("!!!   Bots have been split into 2 people   !!!");
+
+					while (botHP > 0)
+					{
+						botHP = botHP - power;
+						Console.WriteLine("bot"+battleID+" was damaged by "+"bot"+battleID2+" for -"+random.Next(1, 10));
+						if (botHP <= 0)
+						{
+							Console.WriteLine("!!!   bot"+randomBOT+" is dead   !!!");
+							break;
+						}
+					}
+					break;
+				}
+				
+				//while (bot_amount / 2 > 2)
 				//{
-					//Console.WriteLine(result);
-					//break;
+				//	bot_amount--;
 				//}
+
 			}
 
-			/*if (dPower>60)
+			/*while (TWO <= 2)
+			//{
+			if (dPower>60)
 			{
 				int attack = random.Next(50,100);
 				int bot_random = random.Next(1,5);
@@ -74,6 +101,7 @@ namespace Workspace
 					Console.WriteLine("Lucky is "+bot5.ToString());
 					int bot_lucky = bot5;
 				}
+				//TWO++;
 			}
 
 			if (dPower<=60)
@@ -110,9 +138,12 @@ namespace Workspace
 					Console.WriteLine("Not so lucky is "+bot5.ToString());
 					int bot_lucky = bot5;
 				}
-			}*/
+				//TWO++;
+			}
+			//}*/
 
 			Console.ReadLine();
+			
 		}
 	}
 }
