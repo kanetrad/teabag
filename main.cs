@@ -16,7 +16,7 @@ namespace Workspace
 			Console.WriteLine("Enter MAX HP:");
 			int botHP_const = Int32.Parse(Console.ReadLine());
 			int battleID = random.Next(1, bot_amount);
-			int randomdmg = random.Next(1, 10);
+			public int randomdmg;
 			int battleID2 = random.Next(battleID, bot_amount);
 			while (battleID2 == battleID)
 			{
@@ -54,6 +54,7 @@ namespace Workspace
 			{
 				while (bot1 > 0)
 				{
+					randomdmg = random.Next(1, 10);
 					bot1 = bot1 - randomdmg;
 					Console.WriteLine("bot"+bot1+" was damaged for "+randomdmg);
 					changeTurn2();
@@ -65,6 +66,7 @@ namespace Workspace
 			{
 				while (bot2 > 0)
 				{
+					randomdmg = random.Next(1, 10);
 					bot2 = bot2 - randomdmg;
 					Console.WriteLine("bot"+bot2+" was damaged for "+randomdmg);
 					changeTurn();
@@ -74,14 +76,12 @@ namespace Workspace
 
 			if (bot1 <= 0)
 			{
-				//bot1 = 0;
 				Console.WriteLine("bot"+battleID+" is dead");
 				Console.WriteLine("THE WINNER IS bot"+battleID2+"!!!");
 			}
 
 			if (bot2 <= 0)
 			{
-				//bot2 = 0;
 				Console.WriteLine("bot"+battleID2+" is dead");
 				Console.WriteLine("THE WINNER IS bot"+battleID+"!!!");
 			}
