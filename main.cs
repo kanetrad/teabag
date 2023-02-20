@@ -10,85 +10,38 @@ namespace Workspace
 
 			Console.WriteLine("Enter bot amount:");
 			int bot_amount = Int32.Parse(Console.ReadLine());
-			//int bot_amount = 2;
-			int one = 1;
-			int botHP = 100;
-			int botHP2 = 100;
+			int one = 0;
+			int bot1 = 100;
+			int bot2 = 100;
 			Console.WriteLine("Enter MAX HP:");
 			int botHP_const = Int32.Parse(Console.ReadLine());
 			int battleID = random.Next(1, bot_amount);
-			int battleID2 = random.Next(battleID, bot_amount+1);
-
-			void changeTurn()
+			int randomdmg = random.Next(1, 10);
+			int battleID2 = random.Next(battleID, bot_amount);
+			while (battleID2 == battleID)
 			{
-				while (botHP > 0)
-				{
-					botHP = botHP - random.Next(1, 10);
-					Console.WriteLine("bot"+battleID+" was damaged by "+"bot"+battleID2+" for in sum "+(botHP - botHP_const));
-					changeTurn2();
-
-					if (botHP <= 0)
-					{
-						botHP = 0;
-						Console.WriteLine("bot"+battleID+" is dead");
-						Console.WriteLine("THE WINNER IS "+"bot"+battleID2+"!!!");
-						break;
-					}
-
-					if (botHP2 <= 0)
-					{
-						botHP2 = 0;
-						Console.WriteLine("bot"+battleID2+" is dead");
-						Console.WriteLine("THE WINNER IS "+"bot"+battleID+"!!!");
-						break;
-					}
-				}
+				battleID2 = random.Next(battleID, bot_amount);
 			}
 
-			void changeTurn2()
-			{
-				while (botHP2 > 0)
-				{
-					botHP2 = botHP2 - random.Next(1, 10);
-					Console.WriteLine("bot"+battleID2+" was damaged by "+"bot"+battleID+" for in sum "+(botHP2 - botHP_const));
-					changeTurn();
-
-					if (botHP <= 0)
-					{
-						botHP = 0;
-						Console.WriteLine("bot"+battleID+" is dead");
-						Console.WriteLine("THE WINNER IS "+"bot"+battleID2+"!!!");
-						break;
-					}
-
-					if (botHP2 <= 0)
-					{
-						botHP2 = 0;
-						Console.WriteLine("bot"+battleID2+" is dead");
-						Console.WriteLine("THE WINNER IS "+"bot"+battleID+"!!!");
-						break;
-					}
-				}
-			}
-
-			while (one != bot_amount+1)
+			while (one != bot_amount)
 			{
 				one++;
 			
-				if (one == bot_amount+1)
+				if (one == bot_amount)
 				{
 					Console.WriteLine("bot"+battleID+" VS "+"bot"+battleID2);
 
-					while (botHP > 0)
+					while (bot1 > 0)
 					{
-						botHP = botHP - random.Next(1, 10);
+						bot1 = bot1 - randomdmg;
+						bot2 = bot2 - randomdmg;
 
-						while (botHP < botHP_const)
+						while (bot1 < botHP_const)
 						{
 							changeTurn2();
 							break;
 						}
-						while (botHP2 < botHP_const)
+						while (bot2 < botHP_const)
 						{
 							changeTurn();
 							break;
@@ -97,7 +50,44 @@ namespace Workspace
 				}
 			}
 
+			void changeTurn()
+			{
+				while (bot1 > 0)
+				{
+					bot1 = bot1 - randomdmg;
+					Console.WriteLine("bot"+bot1+" was damaged for "+randomdmg);
+					changeTurn2();
+					break;
+				}		
+			}
+
+			void changeTurn2()
+			{
+				while (bot2 > 0)
+				{
+					bot2 = bot2 - randomdmg;
+					Console.WriteLine("bot"+bot2+" was damaged for "+randomdmg);
+					changeTurn();
+					break;
+				}
+			}
+
+			if (bot1 <= 0)
+			{
+				//bot1 = 0;
+				Console.WriteLine("bot"+battleID+" is dead");
+				Console.WriteLine("THE WINNER IS bot"+battleID2+"!!!");
+			}
+
+			if (bot2 <= 0)
+			{
+				//bot2 = 0;
+				Console.WriteLine("bot"+battleID2+" is dead");
+				Console.WriteLine("THE WINNER IS bot"+battleID+"!!!");
+			}
+
 			Console.ReadLine();
+
 		}
 	}
 }
