@@ -15,12 +15,12 @@ namespace main
 			int winner;
 			Console.WriteLine(bot_amount);
 			for (int num=1; num<=bot_amount; num++)
-            {
+            		{
 				Console.WriteLine(num);
 				bot = "bot" + random.Next(1, bot_amount);
 				bot2 = "bot" + random.Next(1, bot_amount);
 				while (bot == bot2)
-                {
+                		{
 					bot2 = "bot" + random.Next(1, bot_amount);
 				}
 				Console.WriteLine(bot);
@@ -31,12 +31,12 @@ namespace main
 			Console.WriteLine(" ");
 
 			for (int elim=bot_amount; elim>=0; elim--)
-            {     
+            		{     
 				if (random.Next(1, 100) < 60)
-                {
-                	winner = 1;
-					Console.WriteLine("In round "+round+" won bot");
-                }
+                		{
+                		winner = 1;
+				Console.WriteLine("In round "+round+" won bot");
+                	}
 				if (random.Next(1, 100) >= 60)
 				{
 					winner = 2;
