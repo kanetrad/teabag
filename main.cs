@@ -56,10 +56,6 @@ namespace main
 				}
 			}
 
-			Console.WriteLine(" ");
-			Console.WriteLine("pretend that airplanes in the night sky..");
-			Console.WriteLine("oh (*___*)");
-			Console.WriteLine("i meant-");
 			Console.WriteLine("pretend that rounds' numbers are ordinal as usual");
 			Console.WriteLine("bc idk how to make them like that >.<");
 
